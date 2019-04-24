@@ -1,10 +1,8 @@
-# Wix app - React JSX Demo Widget
+# Wix Verify - Slider Component
 ### **Overview**
 
-This boilerplate will make it easy for you to [start developing](http://dev.wix.com/) your [Wix app](https://www.wix.com/app-market/main). 
-The project is already set up with a widget component and its App settings panel.
+USing Wix App Builder Boilerplate. More information: [start developing](http://dev.wix.com/) your [Wix app](https://www.wix.com/app-market/main). 
 
-Most apps have a server side, but to keep it simple, we'll focus only on the client side.
 
 ### **Features**
 * Uses the official Wix UI-lib and [UI controls](http://dev.wix.com/docs/ui-lib/ui-controls/)
@@ -17,18 +15,12 @@ Before you start - get [node.js](https://nodejs.org/en/)
 
 Generate the app:
 
-1. Clone our starter template
-`git clone git@github.com:wix/tpa-demo-app-react-jsx.git`
-2. Navigate to your project folder
-`cd tpa-demo-app-react-jsx/`
-3. Install npm
-`npm install`
-4. Run webpack
-`webpack`
-5. Run the app
-`npm start`
+Clone, Install, Run
+1. git clone -REPO-
+2. npm install
+3. npm start
 
-This will run a webserver on your local host. You can now view your app in your browser: http://localhost:3000/widget.html
+https://localhost:3000/widget.html
 
 ### **Registering the app**
 
