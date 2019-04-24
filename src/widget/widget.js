@@ -1,13 +1,15 @@
+import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css';
+
 define(['react', 'Wix'], function (React, Wix) {
     return React.createClass({
         getInitialState: () => {
             return {
-                settingsUpdate: {},
-                showBox  : false
+                value: 0
             }
         },
         componentDidMount: function () {
-            this.updateCompHeight(600);
+            
             Wix.addEventListener(Wix.Events.SETTINGS_UPDATED, (data) => this.onSettingsUpdate(data));
 
             // You can get the style params programmatically, un-comment the following snippet to see how it works:
@@ -31,9 +33,9 @@ define(['react', 'Wix'], function (React, Wix) {
             Wix.setHeight(desiredHeight);
         },
         navToHome: () => {
-          Wix.getSiteMap(pages => {
-            Wix.navigateToPage(pages[0].pageId.substring(1));
-          });
+            Wix.getSiteMap(pages => {
+                Wix.navigateToPage(pages[0].pageId.substring(1));
+            });
         },
         stringify: (input) => {
             try {
@@ -42,30 +44,26 @@ define(['react', 'Wix'], function (React, Wix) {
                 return input;
             }
         },
+        getValue: function (event) {
+            console.log(this.state.value)
+        },
+        setValue: function (value) {
+            this.setState({value});
+        },
         render: function () {
-          const {settingsUpdate} = this.state;
             return (
                 <div>
-                    <div className="wix-style-sample">
-                        <h3 className="sample-element sample-title">{"Demo App"}</h3>
-                        <p className="sample-element sample-content">{"Welcome to the Wix Demo App, let's play!"}</p>
-                        <form className="form">
-                            <input title="email" type="email" className="sample-element sample-input" placeholder="Enter text here" value={this.props.email}/>
-                        </form>
-                        <button className="sample-element sample-button">{"Click me"}</button>
-                        <br/>
-                        <a onClick={() => this.navToHome()}>{"Go to Home Page"}</a>
-                        <br/>
-                        <hr/>
-                        <div className={this.state.showBox ? "" : "hiddenBox"}>
-                          <h3 className="sample-element sample-title">{"Last settings update"}</h3>
-                          <pre>
-                              <code className="json sample-content">{this.stringify(settingsUpdate)}</code>
-                          </pre>
-                        </div>
-                    </div>
+                    <div>
+                        <Slider vertical defaultValue={0} onAfterChange={this.setValue.bind(this)}/>
+                    
+                        <p align="right">{this.state.value}</p>
+                    </div>   
                 </div>
+                
             )
         }
     });
 });
+
+
+

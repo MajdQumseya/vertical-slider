@@ -1,34 +1,87 @@
-.wix-style-sample {
-    padding: 15px;
+$height: 300px;
 
-    h3, p {
-        margin: 0;
-        padding: 0;
+$width: 24px;
+$cursorWidth: 24px;
+
+$radiusCorner: 10px;
+$cursorRadius: 50%;
+
+$colorPopulated: #96dbfa;
+$colorEmpty: transparent;
+
+$cursorColor: white;
+$cursorBorder: #96dbfa;
+$cursorHeight: 24px;
+
+// $lineWidth: 10px;
+// $lineColor: green;
+
+
+.rc-slider {
+    // Height
+    height: $height;
+    // Width
+    width: $width;
+}
+
+.rc-slider-step {
+    // Color Empty
+    background: $colorEmpty;
+}
+
+.rc-slider-handle {
+    // Cursor Radius
+    border-radius: $cursorRadius;
+    // Cursor Height
+    height: $cursorHeight;
+    // Cursor Width
+    width: $cursorWidth;
+    // Cursor Color
+    background: $cursorColor;
+    // Cursor Border
+    border: solid 2px $cursorBorder;
+
+    &:hover {
+        border: solid 2px $cursorBorder
     }
 
-    .sample-element {
-        margin: 5px 0;
-    }
+    z-index: 2;
+}
 
-    .sample-button {
-        padding: 10px 15px;
-        border: 0;
-        width:100%;
-    }
+.rc-slider-handle-click-focused {
+    //Cursor Border
+    border: solid 2px $cursorBorder !important;
+}
 
-    .sample-input {
-        padding: 10px 15px;
-        border: 1px solid black;
-        width:100%;
-        box-sizing: border-box;
-    }
+.rc-slider-track {
+    // Color Populated
+    background-color: $colorPopulated;
+    // Line Width
+    width: $width;
+    // Border Radius
+    border-radius: $radiusCorner;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    z-index: 1;
+}
 
-    .form {
-        display: block;
-        margin-top: 10px;
-    }
-    .hiddenBox {
-      display: none;
-    }
+.rc-slider-vertical .rc-slider-rail {
+    // Line Width
+    width: $width;
+    // Radius Corner
+    border-radius: $radiusCorner;
+}
 
+.rc-slider-vertical .rc-slider-track {
+    // Line Width
+    width: $width;
+}
+
+.rc-slider-vertical .rc-slider-step {
+    width: $width;
+    border-radius: $radiusCorner;
+}
+
+.rc-slider-vertical .rc-slider-handle {
+    margin-left: 0px;
 }
